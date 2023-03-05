@@ -38,7 +38,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 useEffect(()=>{
-  const components = document.querySelectorAll("#component");
+  // const components = document.querySelectorAll("#component");
+  let components = gsap.utils.toArray(".panel");
   const container = document.querySelector("#container")
 
   gsap.to(components, {
@@ -49,7 +50,7 @@ useEffect(()=>{
       pin : true,
       scrub : 1,
       snap : 1/(components.length-1),
-      end : ()=>"+=".container.offsetWidth
+      end : ()=>"+="+ document.querySelector(".container").offsetWidth
     }
   })
 }, [])
